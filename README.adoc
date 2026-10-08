@@ -1,0 +1,35 @@
+= Acme Benefits Management
+
+An internal Java EE web application used by Acme Inc. employees to manage benefits enrollment, elections, and plan information.
+
+== Risk Classification
+
+*Low Risk* — This is an internal-only application used by HR and employees during benefits enrollment periods. It is not customer-facing and has no direct revenue impact. Brief downtime is tolerable.
+
+== Purpose
+
+This application is a sample used in the https://github.com/rhpds/lightwell-workshop[Lightwell Workshop] at Red Hat One. It is intentionally built with outdated dependencies containing known vulnerabilities (CVEs). During the workshop, participants use Red Hat Lightwell to identify, assess, and remediate these vulnerabilities through both AI-driven (Ansible Automation Platform + OpenCode agents) and deterministic (Renovate) remediation paths.
+
+== Known Vulnerable Dependencies
+
+[cols="2,1,2",options="header"]
+|===
+| Dependency | Version | Notes
+| Flyway | 4.1.2 | Database migration library with known CVEs
+| JBoss JMS API | 2.0.0.Final | Legacy messaging API
+| JBoss RMI API | 1.0.2.Final | Legacy remote method invocation
+| JavaEE Web/API | 7.0 | End-of-life Java EE platform
+|===
+
+== Build
+
+[source,bash]
+----
+mvn package -DskipTests
+----
+
+Produces `target/benefits-mgmt-app.war`.
+
+== License
+
+Sample code for demonstration purposes only. Not intended for production use.
